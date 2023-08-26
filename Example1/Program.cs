@@ -3,14 +3,27 @@
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
-int Power(int number, int power)
+double Power(int number, int power)
 {
-    int result = number;
-    for (int i = 1; i < power; i++)
+    double result = number;
+    if (power == 0) return 1;
+    if (power > 0)
     {
-        result *= number;
+        for (int i = 1; i < power; i++)
+        {
+            result *= number;
+        }
+        return result;
     }
-    return result;
+    if (power < 0)
+    {
+        for (int i = -1; i > power; i--)
+        {
+           result *= number;
+        }
+        return 1/result;
+    }
+    else return -1;
 }
 
 Console.WriteLine("Введи число, затем введи степень этого числа, через Enter: ");
